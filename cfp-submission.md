@@ -15,12 +15,8 @@ This is an intermediate workshop. There will be no soldering, but you will need 
 * A laptop preconfigured with the workshop tools
 * A USB-C cable to program and monitor the ESP32 board with your laptop 
 
-
-
 ### About the instructor
-
 John Duksta is an Elder Nerd who's been a security engineer for over 25 years. He has been messing around with electronics on and off since he was a kid, when his dad got him one of those 150-in-1 electronics experimenter kits at Radio Shack. He is by no means an expert in these things and is hacking his way through this Matter stuff with just a few months head start on the rest of you. He's always happy to share what he's learned along the way.
-
 
 ### Administrativa
 This is a 2-3 hour workshop. There will be a little bit of presentation at the beginning, but most of the time will be walking folks through using the tooling and troubleshooting people's issues with it.
