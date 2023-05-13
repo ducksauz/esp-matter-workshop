@@ -9,11 +9,12 @@ time, as there's about 25G of stuff to install.
 
 Please work your way though this README just up to flashing the
 device, because you won't have the device yet. But please get
-tools and container below installed and make sure you can do
+the tools and container below installed and make sure you can do
 the `hello_world` build.
 
 ## Required Hardware
 
+**Warning**
 WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
 THE ESP32-C6 DEV BOARDS.
 
@@ -23,8 +24,8 @@ for use on the day of the workshop.
 
 ## Optional Hardware
 
-If you're feeling adventurous, feel free to bring a breadboard and maybe
-a couple of sensors you might have hanging around. There's a [3p library
+If you're feeling adventurous, feel free to bring a breadboard and a
+couple of sensors you might have hanging around. There's a [3p library
 of drivers](https://github.com/UncleRus/esp-idf-lib) for the ESP IDF
 framework available. Check the docs to see if you might have something in
 your parts bin that's supported.
