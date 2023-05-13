@@ -6,21 +6,19 @@ In this workshop, we'll get a development environment up and running using Espre
 
 This is an intermediate workshop. There will be no soldering, but you will need a Linux, Mac, or Windows laptop with git, esptool, Visual Studio Code, and Docker Desktop installed. You'll also want to download the 18 gig development container before coming to the workshop so you're not dependant on conference wifi for that. You'll be given clear instructions in advance of the conference of what you need to prepare.
 
-### What you'll get
-* An ESP32-S3 dev board with Wifi and BLE support
-* Some I2C sensors to attach to the ESP32 board
-* I2C cable
+## What you'll get
 
-### What you'll need
+* Two (2) ESP32-C6 dev boards with Wifi, BLE, and Thread support
+
+## What you'll need
+
 * A laptop preconfigured with the workshop tools
-* A USB-C cable to program and monitor the ESP32 board with your laptop 
+* Two USB-C cables to program and monitor the ESP32 board with your laptop
 
-### About the instructor
+## About the instructor
+
 John Duksta is an Elder Nerd who's been a security engineer for over 25 years. He has been messing around with electronics on and off since he was a kid, when his dad got him one of those 150-in-1 electronics experimenter kits at Radio Shack. He is by no means an expert in these things and is hacking his way through this Matter stuff with just a few months head start on the rest of you. He's always happy to share what he's learned along the way.
 
-### Administrativa
+## Administrativa
+
 This is a 2-3 hour workshop. There will be a little bit of presentation at the beginning, but most of the time will be walking folks through using the tooling and troubleshooting people's issues with it.
-
-Each participant will get $15-$20 worth of ESP32 and sensor gear that I'll be sourcing from AliExpress. I'd like to see the workshop make a little something for the conference, but still be affordable, so maybe we price it at $40? 
-
-I think 30-35 people is about the limit of what I can handle in the workshop. If there are a couple of volunteers who want to prep and learn in advance so they can help support the class, then maybe we can go to 50 people. More than that will be too unruly.

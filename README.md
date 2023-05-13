@@ -10,7 +10,7 @@ You'll need some basic dev tools installed on your laptop
 * [esptool](https://github.com/espressif/esptool)
 * a code editor. I'm using [VS Code](https://code.visualstudio.com/download), but you're free to use whatever
 
-## Check out this workshop repo
+## Check out a copy of this workshop repo
 
 ```bash
 git clone https://github.com/ducksauz/esp-matter-workshop.git
@@ -41,6 +41,41 @@ docker run -it --mount type=bind,source="$(pwd)",target=/workspaces \
     ducksauz/esp-matter-dev:latest
 ```
 
+You should get some output that looks like this and then a root shell
+prompt within the container.
+
+```bash
+Adding ESP-IDF tools to PATH...
+Checking if Python packages are up to date...
+Constraint file: /opt/esp/tools/espidf.constraints.v5.1.txt
+Requirement files:
+ - /opt/esp/idf/tools/requirements/requirements.core.txt
+Python being checked: /opt/esp/tools/python_env/idf5.1_py3.9_env/bin/python
+Python requirements are satisfied.
+Added the following directories to PATH:
+
+  /opt/esp/idf/components/espcoredump
+  /opt/esp/idf/components/partition_table
+  /opt/esp/idf/components/app_update
+  /opt/esp/tools/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin
+  /opt/esp/tools/tools/riscv32-esp-elf-gdb/12.1_20221002/riscv32-esp-elf-gdb/bin
+  /opt/esp/tools/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin
+  /opt/esp/tools/tools/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin
+  /opt/esp/tools/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin
+  /opt/esp/tools/tools/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin
+  /opt/esp/tools/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin
+  /opt/esp/tools/tools/cmake/3.24.0/bin
+  /opt/esp/tools/tools/openocd-esp32/v0.12.0-esp32-20230313/openocd-esp32/bin
+  /opt/esp/tools/python_env/idf5.1_py3.9_env/bin
+  /opt/esp/idf/tools
+Done! You can now compile ESP-IDF projects.
+Go to the project directory and run:
+
+  idf.py build
+
+root@0d18872db56b:/#
+```
+
 ## Basic build methodology
 
 Now you're working within a shell inside the container. All the required 
@@ -52,7 +87,7 @@ the hello_world example to make sure that basic tooling is working properly.
 cd /workspaces/examples/hello_world
 ```
 
-Configure for target board. We've got support for all the various esp32 
+Configure for the target board. We've got support for all the various esp32
 targets in the container, but we're just working with esp32c6 today.
 
 ```bash
@@ -67,13 +102,13 @@ enablement. For example, if you were building a low power Matter device
 with the esp32c6, you could make a device that just uses the BLE and Thread
 support and skip building in wifi at all to save a lot of code space and power.
 
-When you're done poking around the menuconfig, go ahead and run the build.
+When you're done poking around the menuconfig, quit without saving and run 
+the build.
 
 ```bash
 idf.py menuconfig
 idf.py build
 ```
-
 
 After five or so minutes and close to a thousand build commands, the build
 will be done and the tail of your build output will look something like this.
@@ -101,24 +136,38 @@ root@b6f14b7080a6:/workspaces/examples/hello_world#
 
 ## Flashing the dev board
 
-Connect one of your dev boards to your laptop via the USB-C to UART port.
-With the component side up and the USB-C ports pointed down, it is the port
-on the left.
+Connect one of your dev boards to your laptop via the USB-C to UART port,
+which is the port in the bottom right of the diagram below. With the component
+side up and the USB-C ports pointing down, it is the port on the left.
 
 ![Annotated diagram of ESP32-C6 board](specs/esp32-c6-devkitc-1-v1-annotated-photo.png)
+
+The device port should be something like the following depending on your OS:
+
+* Linux: `/dev/tty-usbserialXXXX`
+* macOS: `/dev/tty.usbserial-220`
+* Windows: `COM5` (need a windows person in the workshop to help here)
 
 Now we need to go back to a shell in your host OS to flash the dev board,
 
 ```bash
 cd path/to/esp-matter-workshop
 cd examples/hello_world
-
-
 ```
 
+At the end of the build output above, you got a very long `esptool.py` command line.
+You'll call esptool however you installed it in your host OS (whether it is a standalone
+executable or a python script) and then copy everything after the port parameter. I've
+added lines for readability below, but you can just copy/pasta everything from `-b` onward.
 
-You'll get an esptool command line to flash, which you need to do from the localhost, not the container.
-`#TODO insert example esptool cli and explain path mess`
-
+```bash
+esptool --port /dev/tty.usbserial-220 \
+    -b 460800 --before default_reset --after hard_reset \
+    --chip esp32c6  write_flash --flash_mode dio --flash_size 2MB \
+    --flash_freq 80m \ 
+    0x0 build/bootloader/bootloader.bin \
+    0x8000 build/partition_table/partition-table.bin \
+    0x10000 build/hello_world.bin
+```
 
 
