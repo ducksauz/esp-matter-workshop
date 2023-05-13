@@ -1,6 +1,38 @@
 # esp-matter-workshop
 ESP Matter Workshop for BSides Seattle 2023
 
+## Get prepped before you come!
+
+To ensure that you have the best experience on the day of the
+workshop, you really want to install all the pre-reqs ahead of
+time, as there's about 25G of stuff to install.
+
+Please work your way though this README just up to flashing the
+device, because you won't have the device yet. But please get
+tools and container below installed and make sure you can do
+the `hello_world` build.
+
+## Required Hardware
+
+WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
+THE ESP32-C6 DEV BOARDS.
+
+Before you go any further, make sure you have two USB-C to whatever
+your laptop uses (USB-A or USB-C, as appropriate) cables in your bag
+for use on the day of the workshop.
+
+## Optional Hardware
+
+If you're feeling adventurous, feel free to bring a breadboard and maybe
+a couple of sensors you might have hanging around. There's a [3p library
+of drivers](https://github.com/UncleRus/esp-idf-lib) for the ESP IDF
+framework available. Check the docs to see if you might have something in
+your parts bin that's supported.
+
+https://esp-idf-lib.readthedocs.io/en/latest/index.html
+
+The ESP32-C6 dev boards come with header pins already installed.
+
 ## Required software
 
 You'll need some basic dev tools installed on your laptop
