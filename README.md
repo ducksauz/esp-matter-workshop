@@ -14,9 +14,8 @@ the `hello_world` build.
 
 ## Required Hardware
 
-> **Warning**
-> WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
-> THE ESP32-C6 DEV BOARDS.
+NOTE! WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
+THE ESP32-C6 DEV BOARDS.
 
 Before you go any further, make sure you have two USB-C to whatever
 your laptop uses (USB-A or USB-C, as appropriate) cables in your bag
@@ -178,7 +177,7 @@ side up and the USB-C ports pointing down, it is the port on the left.
 The device port should be something like the following depending on your OS:
 
 * Linux: `/dev/tty-usbserialXXXX`
-* macOS: `/dev/tty.usbserial-220`
+* macOS: `/dev/tty.usbserial-NNN`
 * Windows: `COM5` (need a windows person in the workshop to help here)
 
 Now we need to go back to a shell in your host OS to flash the dev board,
@@ -203,4 +202,14 @@ esptool --port /dev/tty.usbserial-220 \
     0x10000 build/hello_world.bin
 ```
 
+## Check out that hello_world
 
+Once you've flashed the board, connect to the same serial port with
+terminal emulator. On Linux and macOS, screen is cheap and dirty. You
+want to sub in whatever your serial port was from above.
+
+Serial settings: 115200,8,N,1. No flow control.
+
+```bash
+screen /dev/tty.usbserial-220 115200
+```
