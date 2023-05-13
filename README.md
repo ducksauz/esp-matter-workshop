@@ -14,9 +14,9 @@ the `hello_world` build.
 
 ## Required Hardware
 
-**Warning**
-WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
-THE ESP32-C6 DEV BOARDS.
+> **Warning**
+> WE ARE NOT PROVIDING USB-C CABLES for FLASHING and POWERING
+> THE ESP32-C6 DEV BOARDS.
 
 Before you go any further, make sure you have two USB-C to whatever
 your laptop uses (USB-A or USB-C, as appropriate) cables in your bag
