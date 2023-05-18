@@ -70,7 +70,7 @@ both the container and host OS.
 
 ```bash
 docker run -it --mount type=bind,source="$(pwd)",target=/workspaces \
-    ducksauz/esp-matter-dev:latest
+    ducksauz/esp-matter-dev:latest /bin/bash
 ```
 
 You should get some output that looks like this and then a root shell
