@@ -1,11 +1,14 @@
 # esp-matter-workshop
-ESP Matter Workshop for BSides Seattle 2023
+ESP Matter Workshop
+
+Originally presented at BSides Seattle 2023
+Updated for Teardown 2024
 
 ## Get prepped before you come!
 
 To ensure that you have the best experience on the day of the
 workshop, you really want to install all the pre-reqs ahead of
-time, as there's about 25G of stuff to install.
+time, as there's about 15G of stuff to install.
 
 Please work your way though this README just up to flashing the
 device, because you won't have the device yet. But please get
@@ -54,7 +57,7 @@ cd esp-matter-workshop
 Build containers are a great way to ensure that everyone is working
 with the same tooling. They're especially helpful for this build
 environment, as there are a lot of dependencies that are a real pain
-in the butt to get installed properly. 
+in the butt to get installed properly.
 
 There's a [separate repo](https://github.com/ducksauz/esp-matter-dev)
 for the build container config, and you're welcome to build it yourself
