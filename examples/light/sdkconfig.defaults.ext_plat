@@ -36,8 +36,8 @@ CONFIG_BUTTON_LONG_PRESS_TIME_MS=5000
 
 # External Platform
 CONFIG_CHIP_ENABLE_EXTERNAL_PLATFORM=y
-CONFIG_CHIP_EXTERNAL_PLATFORM_DIR="../../../../../builds/app-frameworks/platform/ESP32_custom"
-CONFIG_CHIP_EXTERNAL_PLATFORM_INCLUDE_DIR="../../../../../builds/app-frameworks/"
+CONFIG_CHIP_EXTERNAL_PLATFORM_DIR="../../../../../platform/ESP32_custom"
+CONFIG_CHIP_EXTERNAL_PLATFORM_INCLUDE_DIR="../../../../.."
 
 # disable softap by default
 CONFIG_ESP_WIFI_SOFTAP_SUPPORT=n

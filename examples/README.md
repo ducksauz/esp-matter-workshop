@@ -4,9 +4,6 @@ All this example code is coming right from the various SDK codebases,
 either `esp-matter`, `connectedhomeip`, or `openthread`. They're 
 copied into this workshop repo for convenience.
 
-TODO: Ensure I've got all the proper licenses included each example file.
-
-
 ## hello_world
 
 This is from the ESP-IDF SDK. This is just to make sure that you can
