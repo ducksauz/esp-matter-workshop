@@ -3,7 +3,15 @@
 Originally presented at BSides Seattle 2023  
 Updated for Teardown 2024
 
-## Get prepped before you come!
+## Getting Prepped (tl;dr edition)
+
+Download and install all of these (15+ GB) so you're not fighting conference wifi on the day.
+
+* Install git, docker, esptool, and an editor
+* `docker pull ducksauz/esp-matter-dev:latest`
+* Bring 2 USB-C male to USB-A or -C male cables (depending on your laptop ports)
+
+## Get prepped before you come! (long version)
 
 To ensure that you have the best experience on the day of the
 workshop, you really want to install all the pre-reqs ahead of
@@ -42,7 +50,7 @@ You'll need some basic dev tools installed on your laptop
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Docker](https://docs.docker.com/get-docker/)
 * [esptool](https://github.com/espressif/esptool)
-* a code editor. I'm using [VS Code](https://code.visualstudio.com/download), but you're free to use whatever
+* an editor. I'm using [VS Code](https://code.visualstudio.com/download), but you do you (even emacs 😝)
 
 ## Check out a copy of this workshop repo
 
