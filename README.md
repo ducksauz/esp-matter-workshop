@@ -1,7 +1,6 @@
-# esp-matter-workshop
-ESP Matter Workshop
+# ESP Matter Workshop
 
-Originally presented at BSides Seattle 2023
+Originally presented at BSides Seattle 2023  
 Updated for Teardown 2024
 
 ## Get prepped before you come!
