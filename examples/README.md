@@ -225,7 +225,11 @@ Build should take around 15m. (Took 13m on my 6 year old quad core i7 imac under
 * flash it
 
 ```bash
-esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32c6  write_flash --flash_mode dio --flash_size 4MB --flash_freq 40m 0x0 build/bootloader/bootloader.bin 0xc000 build/partition_table/partition-table.bin 0x20000 build/light.bin
+esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset \
+  --chip esp32c6 write_flash --flash_mode dio --flash_size 4MB \
+  --flash_freq 40m 0x0 build/bootloader/bootloader.bin \
+  0xc000 build/partition_table/partition-table.bin \
+  0x20000 build/light.bin
 ```
 
 * connect to serial console
@@ -254,6 +258,51 @@ Done
 * ask your neighbors what pairing code they got
 * See how many of you can pair with someone else's device
 
+</details>
+
+## Pairing your device to Apple HomeKit and Google Home
+
+### Apple Homekit
+
+<details>
+<summary>click to expand</summary>
+When you go to pair your light to Apple Homekit, it will warn you that this
+is an uncertified device and ask you if you still want to add it anyway.
+You want to say yes to that here because we're actually building an uncertified
+device.
+</details>
+
+### Google Home
+
+<details>
+<summary>click to expand</summary>
+This is *much* more complicated (it's Google, of course it is.) Props for
+this explanation go to [Robert Von Zimmerman](https://github.com/rvonzimr),
+who took this workshop at BSides Seattle, figured it out afterward, and was
+kind enough to cut me an [issue](https://github.com/ducksauz/esp-matter-workshop/issues/2)
+with the solution.
+
+When pairing, there's no ability to continue with an unverified device.
+Instead, you'll need to create a developer project and a matter integration
+using the test vendor ID / product Id (0xfff2 and 0x8001 respectively).
+
+[Creating a Developer Project](https://developers.home.google.com/matter/project/create)
+
+[Pairing Restrictions](https://developers.home.google.com/matter/integration/pair#)
+
+Point 4 being particularly relevant...
+
+* A Matter device can only be paired in the Google Home ecosystem in certain Vendor
+  ID and device type scenarios.
+* A test VID cannot be used in a consumer device.
+* Your production VID must issued by the CSA. Google will validate you're the owner
+  of that VID before you can use it in the Google Home Developer Console. Once that
+  happens you'll be able to create integrations for that VID.
+* For development and field trial purposes, a project and integration with the 
+  corresponding VID and PID combination must be created in the Developer Console.
+  The user commissioning the device must either be a member of the project or be
+  included in the list of field trial users.
+* Consumer users can only use your product once it has been certified by the CSA.
 </details>
 
 
