@@ -534,6 +534,7 @@ esptool.py -p ${PORT} -b 460800 --before default_reset --after hard_reset \
 ### Check out some of the ot-cli commands
 
 ```log
+> ifconfig up
 > discover
 >
 
@@ -564,7 +565,7 @@ command on the OTBR to dump the active dataset as is in the
 
 ```bash
 john@touchpi:~/thread-sandbox/ot-br-posix/build/otbr/tools $ sudo ot-ctl dataset active -x
-0e080000000000010000000300000f35060004001fffe0020811111111222222220708fd0907de4e41c5f0051000112233445566778899aabbccddeeff030e4f70656e54687265616444656d6f010212340410445f2b5ca6f2a93a55ce570a70efeecb0c0402a0f7f8
+0e080000000000010000000300000f35060004001fffe0020811111111222222220708fd6914c3376f628c051000112233445566778899aabbccddeeff031054656172646f776e5468726561645753010212340410bbc69116cb91860c3c6a72a07e05570a0c0402a0f7f8
 ```
 
 From our serial terminal sessions, we're going apply that to `ot-cli` running on both
@@ -574,7 +575,7 @@ your esp32c6 modules.
 > factoryreset
 # the device will reboot
 
-> dataset set active 0e080000000000010000000300000f35060004001fffe0020811111111222222220708fd0907de4e41c5f0051000112233445566778899aabbccddeeff030e4f70656e54687265616444656d6f010212340410445f2b5ca6f2a93a55ce570a70efeecb0c0402a0f7f8
+> dataset set active 0e080000000000010000000300000f35060004001fffe0020811111111222222220708fd6914c3376f628c051000112233445566778899aabbccddeeff031054656172646f776e5468726561645753010212340410bbc69116cb91860c3c6a72a07e05570a0c0402a0f7f8
 > ifconfig up
 Done
 > thread start
@@ -586,6 +587,29 @@ Done
 router  # child is also a valid state
 Done
 
+# Let's look at the IP adderss 
+
+> ip print
+
+netif: ot
+ot inet6: FE80::E8FB:168B:9F9A:7F3D 48
+ot inet6: FD69:14C3:376F:628C:640A:3208:4885:6BAF 16
+ot inet6: FF03::2
+ot inet6: FF02::2
+ot inet6: FF33:40:FD69:14C3:376F:628C:0:1
+ot inet6: FF32:40:FD69:14C3:376F:628C:0:1
+ot inet6: FF03::FC
+ot inet6: FF03::1
+ot inet6: FF02::1
+
+netif: lo
+lo inet6: ::1 16
+
+> ipaddr
+
+fd69:14c3:376f:628c:0:ff:fe00:cc00
+fd69:14c3:376f:628c:640a:3208:4885:6baf
+fe80:0:0:0:e8fb:168b:9f9a:7f3d
 ```
 
 </details>

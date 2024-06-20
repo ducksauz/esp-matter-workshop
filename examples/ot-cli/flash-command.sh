@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PORT=/dev/tty.usbserial-10
+PORT=/dev/tty.usbserial-210
 
 esptool.py -p ${PORT} -b 460800 --before default_reset --after hard_reset \
   --chip esp32c6  write_flash --flash_mode dio --flash_size 8MB \
